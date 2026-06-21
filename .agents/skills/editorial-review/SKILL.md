@@ -33,6 +33,15 @@ If the user provides a site archive, export, URL list, or search endpoint:
 3. Suggest internal links only when they help the reader.
 4. Suggest angle changes if the draft repeats existing material too closely.
 
+# Optional articles style comparison
+
+If already existing articles are provided and are accepted by the user, check the draft for:
+- style and tone consistency,
+- formatting consistency,
+- voice consistency,
+- terminology consistency,
+- structure consistency.
+
 # Output
 
 Return:
