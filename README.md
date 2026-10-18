@@ -2,17 +2,28 @@
 
 # Content Workflow Agent
 
-**Reusable AI workspace for creating written content of all kinds — articles, blog posts, reviews, summaries, descriptions, reports, and publication-ready Markdown documents.**
+**From source material to publication-ready drafts, with your AI assistant.**
 
-Designed as a modular content workflow system with onboarding, source analysis, web research, editorial style guidance, SEO metadata, taxonomy generation, review pipelines, and optional publishing integrations such as WordPress.
+Content Workflow Agent helps creators, bloggers, publishers, and editorial teams research topics, analyze source materials, write articles, review content, optimize SEO metadata, and prepare Markdown documents for publication.
 
-🧭 📝 🔎 ⚙️
-
-`README.md` -> `AGENTS.md` -> `.agents/skills/onboarding/SKILL.md`
-
-**Start with onboarding. Create drafts safely. Publish only when explicitly requested.**
+**One workspace. Ten specialized skills.**
 
 </div>
+
+- Set up your publication's editorial context, audience, and writing style.
+- Research topics using source documents and optional web research.
+- Create structured articles with a consistent editorial voice.
+- Optimize titles, descriptions, categories, and tags.
+- Review content before publication.
+- Export Markdown or optionally create WordPress drafts.
+
+### Works with your existing AI assistant
+
+Designed for Codex, Claude Code, GitHub Copilot, and other compatible AI agents that can read the repository's instructions and work with local files.
+
+No dedicated platform required. No vendor lock-in. Your content stays in Markdown, ready for the publishing tools you choose.
+
+**Start with onboarding. Create drafts safely. Publish only when you decide.**
 
 ---
 
@@ -123,6 +134,7 @@ workflows/create-article.md
 ```text
 .
 +-- AGENTS.md
++-- LICENSE
 +-- README.md
 +-- .agents/
 |   +-- skills/
@@ -176,3 +188,10 @@ To enable WordPress draft creation:
 
 All WordPress posts are created with `draft` status by default.
 
+## 📄 License
+
+The reusable workflow, skills, prompts, templates, and project documentation are licensed under the [MIT License](LICENSE).
+
+You can use, modify, and redistribute them, including commercially, provided you retain the copyright and license notice in copies or substantial portions of the licensed material.
+
+This license does not grant rights to third-party source materials or automatically apply to articles created with the workflow. Those materials and articles require their own licensing decisions by the relevant rights holders.

@@ -1,2 +1,8 @@
 .env
 project-context.md
+
+# Ignore source files...
+/source
+
+# and final articles
+/articles 
