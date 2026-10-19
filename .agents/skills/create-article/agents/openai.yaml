@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create Article"
+  short_description: "Create a Markdown article from a source folder"
+  default_prompt: "Use $create-article to write an article from source/<topic>/ using the current project context."

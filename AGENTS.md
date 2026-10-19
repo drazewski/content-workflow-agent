@@ -44,6 +44,7 @@ Before creating any article:
 
 ## Skill Map
 
+- `$create-article`: `.agents/skills/create-article/SKILL.md` (complete article workflow)
 - `$onboarding`: `.agents/skills/onboarding/SKILL.md`
 - `$source-analysis`: `.agents/skills/source-analysis/SKILL.md`
 - `$web-research`: `.agents/skills/web-research/SKILL.md`

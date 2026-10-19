@@ -6,7 +6,7 @@
 
 Content Workflow Agent helps creators, bloggers, publishers, and editorial teams research topics, analyze source materials, write articles, review content, optimize SEO metadata, and prepare Markdown documents for publication.
 
-**One workspace. Ten specialized skills.**
+**One workspace. Eleven reusable skills.**
 
 </div>
 
@@ -46,7 +46,7 @@ codex "Start onboarding for this repository"
 ```
 
 ```text
-codex "$onboarding"
+codex '$onboarding'
 ```
 
 In GitHub Copilot:
@@ -108,9 +108,43 @@ Finished drafts should be written to:
 articles/<topic>.md
 ```
 
+### Create an article with a skill
+
+The `create-article` skill connects the specialized skills into the complete workflow. Start your assistant in this repository, then supply a topic folder.
+
+In Codex CLI or the Codex IDE extension, type:
+
+```text
+$create-article source/drought_in_europe
+```
+
+You can also run `/skills`, select `create-article`, and provide the topic folder in your message. Codex discovers the skill in `.agents/skills/create-article/`.
+
+In Claude Code, type `/` and select `create-article`, or enter:
+
+```text
+/create-article source/drought_in_europe
+```
+
+The repository includes `.claude/skills/create-article` as a relative symlink to `.agents/skills/create-article`. Both assistants read the same instructions. Keep the symlink when cloning or copying the repository. The other editorial skills are read from their files as needed, so they do not need separate Claude Code commands.
+
+For invocation and discovery details, see the [official Codex skill documentation](https://learn.chatgpt.com/docs/build-skills) and [Claude Code skill documentation](https://code.claude.com/docs/en/skills).
+
+The skill:
+
+1. Reads the current `project-context.md` on every invocation, including any changes to the publication, language, or style. If the file is missing, it runs onboarding and stops before writing an article.
+2. Reads `brief.md`, `links.md`, and the other materials in the selected topic folder. Empty optional brief sections use the project defaults.
+3. Analyzes local sources and researches linked or additional sources when permitted.
+4. Writes the article, prepares SEO metadata and tags, checks the draft, and saves `articles/<topic>.md` with sources as required.
+5. Adds an editorial review or social teasers only when requested or configured. WordPress draft creation or update additionally requires an explicit request and any approval required by the project context, after the Markdown file exists.
+
+If you omit the folder and there is exactly one topic folder in `source/`, the skill uses it. If there are several, it asks which one to use. It clarifies before replacing an existing article unless your request already authorizes an update.
+
+If a newly added skill does not appear, restart your assistant in the repository. This is an AI-guided workflow: the assistant follows the skill and uses the tools available in your environment.
+
 ## ⚙️ Agent Workflow
 
-Agents should use the repository in this order:
+Use `create-article` to coordinate the article workflow, or follow the individual stages:
 
 1. `onboarding` - create or refresh `project-context.md`.
 2. `source-analysis` - analyze PDFs, reports, local notes, and other source documents.
@@ -138,6 +172,10 @@ workflows/create-article.md
 +-- README.md
 +-- .agents/
 |   +-- skills/
+|       +-- create-article/
+|       |   +-- SKILL.md
+|       |   +-- agents/
+|       |       +-- openai.yaml
 |       +-- onboarding/
 |       |   +-- SKILL.md
 |       +-- source-analysis/
@@ -158,6 +196,9 @@ workflows/create-article.md
 |       |   +-- SKILL.md
 |       +-- wordpress-publish/
 |           +-- SKILL.md
++-- .claude/
+|   +-- skills/
+|       +-- create-article -> ../../.agents/skills/create-article
 +-- .github/
 |   +-- copilot-instructions.md
 |   +-- instructions/
