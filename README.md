@@ -142,6 +142,14 @@ If you omit the folder and there is exactly one topic folder in `source/`, the s
 
 If a newly added skill does not appear, restart your assistant in the repository. This is an AI-guided workflow: the assistant follows the skill and uses the tools available in your environment.
 
+### Example: from brief to finished article
+
+The `examples/` directory contains a complete example of the workflow:
+
+- [Article brief](examples/source/drought_in_europe/brief.md) — the goal, audience, scope, and editorial requirements.
+- [Source links](examples/source/drought_in_europe/links.md) — the starting material for research and verification.
+- [Finished article: Drought in Europe](examples/articles/drought_in_europe.md) — an article ready for review and publishing.
+
 ## ⚙️ Agent Workflow
 
 Use `create-article` to coordinate the article workflow, or follow the individual stages:
@@ -208,6 +216,13 @@ workflows/create-article.md
 +-- prompts/
 |   +-- start-onboarding.md
 |   +-- create-article.md
++-- examples/
+|   +-- articles/
+|   |   +-- drought_in_europe.md
+|   +-- source/
+|       +-- drought_in_europe/
+|           +-- brief.md
+|           +-- links.md
 +-- source/
 +-- articles/
 +-- .env.example
